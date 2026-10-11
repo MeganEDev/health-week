@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Ink · day + recipe</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:#17171a;color:#e9e9ec;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',system-ui,sans-serif;
+  padding:36px 20px 60px;-webkit-font-smoothing:antialiased}
+h1{font-size:19px;font-weight:700;letter-spacing:-.01em;margin-bottom:4px}
+.sub{font-size:13px;color:#8b8b95;margin-bottom:28px}
+.rail{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;align-items:flex-start}
+.unit{width:413px}
+.cap{margin-top:14px}
+.cap h2{font-size:14.5px;font-weight:750;letter-spacing:-.01em}
+.cap p{font-size:12px;color:#8b8b95;line-height:1.5;margin-top:3px}
+.phone{width:413px;height:872px;border-radius:52px;padding:10px;background:#2c2c31;
+  box-shadow:0 0 0 1.5px #44444c, 0 20px 50px rgba(0,0,0,.5)}
+.screen{width:393px;height:852px;border-radius:44px;overflow:hidden;position:relative}
+.island{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:120px;height:33px;
+  background:#000;border-radius:20px;z-index:50}
+.status{height:54px;display:flex;align-items:flex-end;justify-content:space-between;
+  padding:0 30px 7px;font-size:14px;font-weight:700;position:relative;z-index:40}
+.status .r{display:flex;gap:5px;align-items:center;font-size:12px}
+.vp{height:798px;overflow-y:auto;position:relative;scrollbar-width:none}
+.vp::-webkit-scrollbar{display:none}
+</style></head><body>
+<h1>Ink · alignment fixed, recipes added</h1>
+<div class="sub">Cooked meals carry a chevron through to their recipe · frames scroll</div>
+<div class="rail" id="rail"></div>
+
+<script>
+const INK='#23262b', BG='#f3f2ef', MUTE='#71767e', HAIR='#e7e7e2';
+const HUE=[['#ffe9d6','#f0a868'],['#dff0d8','#78b369'],['#fde0e9','#e089a8'],['#e4e0f7','#9186d6']];
+const A=['rgba(35,38,43,.09)','#23262b'];
+
+const D = {
+  day:'Monday', date:'5 October', dow:['M','T','W','T','F','S','S'], today:0,
+  meals:[
+    {slot:'Breakfast', name:'Yoghurt bowl',   detail:'200 g Greek yoghurt + 100 g berries', ic:'🫐', cooked:false},
+    {slot:'Lunch',     name:'Chicken bowl',   detail:'Chicken, rice, capsicum, broccolini', ic:'🍗', cooked:true},
+    {slot:'Snack',     name:'Fruit + 2 eggs', detail:'Apple, orange or grapes',             ic:'🍎', cooked:false},
+    {slot:'Dinner',    name:'Steak plate',    detail:'Steak, mushrooms, carrots, 1 potato', ic:'🥩', cooked:true}
+  ],
+  train:{title:'Lower Body', sub:'~30 min', sets:[
+    {l:'A', ex:[{n:'Goblet squat',r:'12',w:'8kg KB'},{n:'Hip thrust',r:'12',w:'5kg DB'}]},
+    {l:'B', ex:[{n:'Kettlebell RDL',r:'12',w:'8kg KB'},{n:'Hip abduction',r:'12/side',w:'BW'}]},
+    {l:'C', ex:[{n:'Bulgarian split squat',r:'6/leg',w:'BW'},{n:'Calf raises',r:'15',w:'4kg DB'}]}
+  ]}
+};
+
+const chip = (txt,h) => `<span style="display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.1em;
+  text-transform:uppercase;padding:3.5px 9px;border-radius:20px;
+  background:${h?h[0]:'rgba(35,38,43,.05)'};border:1px solid ${h?h[1]:INK};color:${INK}">${txt}</span>`;
+
+const nav = `<div style="position:sticky;bottom:0;margin:18px -20px 0;padding:0 20px 14px">
+  <div style="background:${INK};border-radius:30px;padding:7px;display:flex;gap:5px">
+    ${['Today','Week','Shop'].map((x,i)=>`<span style="flex:1;text-align:center;padding:10px 0;border-radius:24px;
+      font-size:12px;font-weight:750;background:${i===0?'#fff':'transparent'};
+      color:${i===0?INK:'rgba(255,255,255,.62)'}">${x}</span>`).join('')}
+  </div></div>`;
+
+const frame = body => `
+<div class="unit"><div class="phone"><div class="screen" style="background:${BG}">
+  <div class="island"></div>
+  <div class="status" style="color:${INK}"><span>9:41</span>
+    <span class="r">▮▮▮ ⌁ <b style="font-size:11px">84</b></span></div>
+  <div class="vp">${body}</div>
+</div></div><div class="cap"></div></div>`;
+
+/* ───────────── day ───────────── */
+const day = () => {
+  const days = D.dow.map((d,i)=>`<span style="width:40px;height:40px;border-radius:50%;display:flex;
+    align-items:center;justify-content:center;font-size:13.5px;font-weight:800;
+    border:1px solid ${INK};background:${i===D.today?A[0]:'#fff'};color:${INK}">${d}</span>`).join('');
+  const meals = D.meals.map((m,i)=>`
+    <div style="background:#fff;border:1px solid ${INK};border-radius:24px;padding:14px;margin-bottom:11px;
+      display:flex;align-items:center;gap:13px">
+      <div style="width:52px;height:52px;border-radius:18px;background:${HUE[i][0]};border:1px solid ${HUE[i][1]};
+        display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0">${m.ic}</div>
+      <div style="flex:1;min-width:0">
+        <div style="margin-bottom:5px">${chip(m.slot,HUE[i])}</div>
+        <div style="font-size:18.5px;font-weight:800;letter-spacing:-.028em;color:${INK};line-height:1.1">${m.name}</div>
+        <div style="font-size:12px;font-weight:500;color:${MUTE};margin-top:4px">${m.detail}</div>
+      </div>
+      ${m.cooked?`<span style="width:30px;height:30px;border-radius:50%;border:1px solid ${INK};
+        display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;
+        color:${INK};flex-shrink:0;padding-bottom:1px">›</span>`:''}
+    </div>`).join('');
+  /* reps + load sit as one right-aligned pair with a fixed 10px gap —
+     the pair hugs the right edge, the load chip floats wherever it lands */
+  const train = D.train.sets.map(s=>`
+    <div style="background:#fff;border:1px solid ${INK};border-radius:24px;padding:15px 17px;margin-bottom:11px">
+      <div style="display:flex;gap:6px;margin-bottom:10px">${chip('Set '+s.l,A)}${chip('3 rounds')}</div>
+      ${s.ex.map((e,i)=>`<div style="display:flex;align-items:center;gap:12px;padding:9px 0;
+        border-top:${i?'1px solid '+HAIR:'none'}">
+        <span style="flex:1;min-width:0;font-size:15.5px;font-weight:750;color:${INK};letter-spacing:-.015em">${e.n}</span>
+        <span style="display:flex;align-items:center;gap:10px;flex-shrink:0">
+          ${chip(e.w)}
+          <span style="font-size:16px;font-weight:800;color:${INK};letter-spacing:-.02em">${e.r}</span>
+        </span>
+      </div>`).join('')}</div>`).join('');
+  return frame(`<div style="padding:8px 20px 0;min-height:784px;display:flex;flex-direction:column">
+    <div style="flex:1">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px">
+        <div><div style="font-size:33px;font-weight:900;letter-spacing:-.04em;color:${INK};line-height:1">${D.day}</div>
+          <div style="font-size:12.5px;font-weight:650;color:${MUTE};margin-top:4px">${D.date}</div></div>
+        <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-end;padding-top:3px">
+          ${chip('1,700 kcal')}${chip('130 g protein',A)}</div>
+      </div>
+      <div style="display:flex;gap:5px;justify-content:space-between;margin:17px 0 20px">${days}</div>
+      <div style="display:flex;align-items:center;gap:9px;margin-bottom:11px">
+        <span style="font-size:12.5px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;color:${INK}">Meals</span>
+        <span style="flex:1;height:1px;background:${INK}"></span></div>
+      ${meals}
+      <div style="display:flex;align-items:center;gap:9px;margin:20px 0 11px">
+        <span style="font-size:12.5px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;color:${INK}">${D.train.title}</span>
+        <span style="flex:1;height:1px;background:${INK}"></span>${chip(D.train.sub)}</div>
+      ${train}
+    </div>${nav}</div>`);
+};
+
+/* ───────────── recipe ───────────── */
+const R = {
+  name:'Chicken bowl', slot:'Lunch', ic:'🍗', hue:HUE[1],
+  meta:['~20 min','Serves 1','Prep ahead'],
+  ingredients:['150 g chicken breast','150 g cooked rice or potato','1 capsicum, sliced',
+    '1 bunch broccolini','Olive oil spray','Salt, pepper, smoked paprika'],
+  method:[
+    'Heat the oven to 220°C. Spray the capsicum with olive oil, salt it, and roast for 20 minutes.',
+    'Season the chicken with salt, pepper and paprika. Pan-fry over medium-high heat, 5–6 minutes a side, until it reaches 74°C in the middle.',
+    'Add the broccolini to the pan for the last 3 minutes with a splash of water, lid on, so it steams.',
+    'Rest the chicken 5 minutes before slicing — it keeps the juice in. Serve over the rice with the veg alongside.'
+  ],
+  note:'If you roasted a tray of capsicum on Sunday, this drops to about 10 minutes.'
+};
+const recipe = () => frame(`<div style="padding:8px 20px 0;min-height:784px;display:flex;flex-direction:column">
+  <div style="flex:1">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px">
+      <span style="width:38px;height:38px;border-radius:50%;border:1px solid ${INK};background:#fff;
+        display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:${INK};
+        padding-right:2px">‹</span>
+      ${chip(R.slot,R.hue)}
+      <span style="width:38px;height:38px;border-radius:50%;border:1px solid ${INK};background:#fff;
+        display:flex;align-items:center;justify-content:center;font-size:15px">🛒</span>
+    </div>
+    <div style="background:#fff;border:1px solid ${INK};border-radius:26px;padding:20px;text-align:center;margin-bottom:18px">
+      <div style="width:76px;height:76px;border-radius:26px;background:${R.hue[0]};border:1px solid ${R.hue[1]};
+        display:flex;align-items:center;justify-content:center;font-size:36px;margin:0 auto 13px">${R.ic}</div>
+      <div style="font-size:30px;font-weight:900;letter-spacing:-.04em;color:${INK};line-height:1.05">${R.name}</div>
+      <div style="display:flex;gap:6px;justify-content:center;margin-top:12px">${R.meta.map(m=>chip(m)).join('')}</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:9px;margin-bottom:11px">
+      <span style="font-size:12.5px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;color:${INK}">Ingredients</span>
+      <span style="flex:1;height:1px;background:${INK}"></span></div>
+    <div style="background:#fff;border:1px solid ${INK};border-radius:24px;padding:6px 17px;margin-bottom:20px">
+      ${R.ingredients.map((x,i)=>`<div style="display:flex;gap:11px;align-items:baseline;padding:10px 0;
+        border-top:${i?'1px solid '+HAIR:'none'}">
+        <span style="width:5px;height:5px;border-radius:50%;background:${R.hue[1]};flex-shrink:0"></span>
+        <span style="font-size:14.5px;font-weight:650;color:${INK};letter-spacing:-.012em">${x}</span></div>`).join('')}
+    </div>
+    <div style="display:flex;align-items:center;gap:9px;margin-bottom:11px">
+      <span style="font-size:12.5px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;color:${INK}">Method</span>
+      <span style="flex:1;height:1px;background:${INK}"></span></div>
+    <div style="background:#fff;border:1px solid ${INK};border-radius:24px;padding:6px 17px;margin-bottom:13px">
+      ${R.method.map((x,i)=>`<div style="display:flex;gap:13px;padding:13px 0;
+        border-top:${i?'1px solid '+HAIR:'none'}">
+        <span style="width:24px;height:24px;border-radius:50%;background:${A[0]};border:1px solid ${INK};
+          display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;
+          color:${INK};flex-shrink:0">${i+1}</span>
+        <span style="font-size:14px;font-weight:500;color:${INK};line-height:1.5">${x}</span></div>`).join('')}
+    </div>
+    <div style="background:${R.hue[0]};border:1px solid ${R.hue[1]};border-radius:20px;padding:13px 16px">
+      <div style="font-size:9.5px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:${INK};
+        margin-bottom:4px">Shortcut</div>
+      <div style="font-size:13px;font-weight:550;color:${INK};line-height:1.45">${R.note}</div>
+    </div>
+  </div>${nav}</div>`);
+
+document.getElementById('rail').innerHTML = day() + recipe();
+const caps = [
+  ['Day','Chevrons sit on the two cooked meals only — the yoghurt bowl and the fruit snack don\'t get one, since there\'s nothing to cook. Exercise rows now right-align the load chip and reps as a single pair with a fixed 10px gap.'],
+  ['Recipe','Opens from the chevron. Ingredients weighed the way the plan specifies, numbered method, and a shortcut note tying it back to the Sunday prep.']
+];
+document.querySelectorAll('.cap').forEach((c,i)=>{
+  c.innerHTML = `<h2>${caps[i][0]}</h2><p>${caps[i][1]}</p>`;
+});
+</script></body></html>

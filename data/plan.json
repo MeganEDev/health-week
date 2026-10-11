@@ -1,0 +1,740 @@
+{
+  "meta": {
+    "title": "Week",
+    "updated": "2026-10-10",
+    "oven": "fan-forced",
+    "household": 2,
+    "goal": "Lean and toned. Hold the muscle you have while the deficit does the rest — long-term strength and bone density come free from the same work.",
+    "dayTargets": {
+      "kcal": "1,700 kcal",
+      "protein": "130g protein"
+    },
+    "everyMorning": "Coffee with Califia oat milk",
+    "note": "Calorie figures are a ballpark — set without a bodyweight or activity level. If nothing has moved in 2–3 weeks, take ~100 kcal of carbs out of lunch.",
+    "cookPattern": "You cook every night. Each cook makes 4 serves: 2 for dinner that evening, 2 for lunch the next day. Nothing is batched further ahead than that and nothing goes in the freezer, so every lunch is the night before's dinner.",
+    "ovenNote": "All temperatures are fan-forced. Add 20°C if you ever use a conventional oven.",
+    "servingNote": "Everything on a day is shown per person. Each dinner is cooked for 4 — two plates tonight, two containers for tomorrow's lunch."
+  },
+  "kitchen": [
+    "Rice is cooked fresh with each dinner, including the portion going into tomorrow's lunch. Cool that portion quickly and get it in the fridge the same night — rice left standing at room temperature is the one real food-safety risk in this plan.",
+    "Steak and fish are the two that don't reheat. Eat those lunches cold — steak sliced thin, salmon flaked over the sweet potato. Both are genuinely good cold; both are poor microwaved.",
+    "Lunch containers are built the night before, straight off the stove, while you're plating dinner.",
+    "Salmon handles the next day far better than barramundi — the fat keeps it moist. Use barramundi on a night you'll eat both serves fresh, otherwise take the salmon."
+  ],
+  "mealKey": {
+    "yoghurt-bowl": {
+      "name": "Yoghurt bowl",
+      "ic": "🍓",
+      "tint": "breakfast",
+      "detail": "200g greek yoghurt + 100g strawberries",
+      "items": [
+        "200g high-protein greek yoghurt",
+        "100g strawberries"
+      ]
+    },
+    "eggs-banana": {
+      "name": "Eggs and banana",
+      "ic": "🥚",
+      "tint": "breakfast",
+      "detail": "2 boiled eggs + 1 banana",
+      "items": [
+        "2 boiled eggs",
+        "1 banana"
+      ]
+    },
+    "chicken-bowl": {
+      "name": "Chicken bowl",
+      "ic": "🍗",
+      "tint": "lunch",
+      "detail": "150g chicken, 150g rice, roasted capsicum and broccolini",
+      "recipe": {
+        "serves": 4,
+        "time": "~35 min",
+        "makes": "2 dinners tonight · 2 lunches tomorrow",
+        "ingredients": [
+          "600g chicken breast (4 × 150g)",
+          "600g cooked rice, or 4 medium potatoes",
+          "2 capsicum, sliced thick",
+          "2 bunches broccolini",
+          "Olive oil spray",
+          "Salt, pepper, smoked paprika, garlic powder"
+        ],
+        "method": [
+          "Oven to 200°C fan. Spread the capsicum on a tray, spray with oil, salt it, roast 20 minutes.",
+          "Season the chicken all over with salt, pepper, paprika and garlic powder.",
+          "Pan-fry over medium-high, 5–6 minutes a side, until the thickest part reads 74°C. Don't crowd the pan — do it in two batches if you need to.",
+          "Throw the broccolini into the same pan for the last 3 minutes with a splash of water and a lid on, so it steams in the chicken fat.",
+          "Rest the chicken 5 minutes before slicing, or the juice ends up on the board. Build two bowls for tonight, two into containers for tomorrow."
+        ],
+        "note": "Slightly undercook the broccolini for the lunch containers — it keeps cooking in the fridge and reheats better."
+      }
+    },
+    "burrito-bowl": {
+      "name": "Burrito bowl",
+      "ic": "🌯",
+      "tint": "lunch",
+      "detail": "150g lean beef mince, rice, black beans, corn, capsicum, salsa, ¼ avocado",
+      "recipe": {
+        "serves": 4,
+        "time": "~30 min",
+        "makes": "2 dinners tonight · 2 lunches tomorrow",
+        "ingredients": [
+          "600g lean beef mince",
+          "400g cooked rice",
+          "1 tin black beans, drained",
+          "1 tin corn, drained",
+          "2 capsicum, diced",
+          "1 avocado",
+          "Salsa",
+          "Cumin, smoked paprika, oregano, salt"
+        ],
+        "method": [
+          "Oven to 200°C fan. Toss the corn and capsicum with a little oil and roast 20 minutes, until the corn starts to colour.",
+          "Brown the mince in a dry hot pan — break it up and leave it alone for the first two minutes so it catches.",
+          "Add 2 tsp cumin, 1 tsp paprika, 1 tsp oregano and a good pinch of salt. Stir through the black beans and a splash of water, simmer 5 minutes.",
+          "Build: rice, mince, roasted veg, salsa. Add avocado only to tonight's bowls — it browns overnight.",
+          "Pack tomorrow's lunch without avocado and cut a fresh quarter in the morning."
+        ],
+        "note": "The best of the week for leftovers — arguably better on day two."
+      }
+    },
+    "stir-fry": {
+      "name": "Chicken stir-fry",
+      "ic": "🥢",
+      "tint": "lunch",
+      "detail": "150g chicken, broccolini, 100g rice",
+      "recipe": {
+        "serves": 4,
+        "time": "~20 min",
+        "makes": "2 dinners tonight · 2 lunches tomorrow",
+        "ingredients": [
+          "600g chicken thigh or breast, sliced thin",
+          "3 bunches broccolini, cut into thirds",
+          "400g cooked rice",
+          "3 cloves garlic and 1 thumb ginger, both minced",
+          "3 tbsp soy sauce, 1 tsp sesame oil",
+          "Neutral oil for the pan"
+        ],
+        "method": [
+          "Get the pan hotter than feels sensible. This is the whole trick — a cool pan steams the chicken instead of searing it.",
+          "Chicken in one layer, 2 minutes without touching it, then toss until just cooked through. Set aside.",
+          "Broccolini in, 3 minutes, then garlic and ginger for 30 seconds — any longer and the garlic turns bitter.",
+          "Return the chicken, add the soy and sesame, toss for 30 seconds and kill the heat.",
+          "Serve over rice. Two plates tonight, two containers for tomorrow."
+        ],
+        "note": "Thigh stays far better overnight than breast — it doesn't dry out in the container."
+      }
+    },
+    "fish-plate": {
+      "name": "Fish plate",
+      "ic": "🐟",
+      "tint": "lunch",
+      "detail": "150g salmon or barramundi, 200g roasted sweet potato, roasted broccolini",
+      "recipe": {
+        "serves": 4,
+        "time": "~35 min",
+        "makes": "2 dinners tonight · 2 lunches tomorrow",
+        "ingredients": [
+          "4 × 150g fillets — salmon, or barramundi if you'll eat all four fresh",
+          "800g sweet potato, cut into 3cm chunks",
+          "2 bunches broccolini",
+          "Olive oil spray, salt, pepper, 1 lemon"
+        ],
+        "method": [
+          "Oven to 200°C fan. Sweet potato on a tray, sprayed and salted, 30 minutes — shake it halfway.",
+          "Add the broccolini to the same tray for the last 10 minutes.",
+          "Pat the skin completely dry and salt it. Dry skin is the difference between crisp and rubbery.",
+          "Skin-side down in a hot pan. Salmon: 4 minutes, then 2 on the flesh side, left slightly translucent in the middle. Barramundi: 3 then 1–2 — it's lean and dries out fast.",
+          "Squeeze the lemon over at the table. Tomorrow's two serves go in cold, flaked over the sweet potato."
+        ],
+        "note": "Eat the lunch cold rather than reheating it. Barramundi is about 170 kcal per 150g against salmon's 300 — leaner, but it loses the fat that makes salmon good the next day."
+      }
+    },
+    "steak-plate": {
+      "name": "Steak plate",
+      "ic": "🥩",
+      "tint": "dinner",
+      "detail": "150–180g steak, pan-fried mushrooms, roasted brussels sprouts, 1 small potato",
+      "recipe": {
+        "serves": 4,
+        "time": "~45 min",
+        "makes": "2 dinners tonight · 2 lunches tomorrow",
+        "ingredients": [
+          "4 × 150–180g steak (porterhouse, rump or scotch)",
+          "4 small potatoes, halved",
+          "400g mushrooms, thickly sliced",
+          "500g brussels sprouts, halved",
+          "Butter, a sprig of thyme, salt, pepper"
+        ],
+        "method": [
+          "Oven to 200°C fan. Potatoes on a tray with oil and salt, 35 minutes.",
+          "Brussels sprouts halved, tossed in oil and salt, cut-side down on their own tray — 25 minutes, until the flat faces are properly charred. Cut-side down is the whole trick.",
+          "Take the steak out of the fridge 30 minutes before it hits the pan. Cold steak cooks unevenly.",
+          "Pat dry, salt generously. Screaming hot pan, 2–3 minutes a side for medium-rare on a 2cm steak. Butter and thyme for the last minute, spooned over.",
+          "Rest 5 minutes — not optional. Fry the mushrooms in the same pan while it rests. Tomorrow's two steaks go in whole and get sliced thin, cold, at lunch."
+        ],
+        "note": "Cold sliced steak is excellent. Reheated steak is grey and tough — don't."
+      }
+    },
+    "lamb-plate": {
+      "name": "Lamb plate",
+      "ic": "🍖",
+      "tint": "dinner",
+      "detail": "150g slow-cooked lamb, 150g sweet potato or rice, roasted capsicum, ¼ avocado",
+      "recipe": {
+        "serves": 4,
+        "time": "8 hrs in the slow cooker",
+        "makes": "2 dinners tonight · 2 lunches tomorrow",
+        "ingredients": [
+          "1.2kg lamb shoulder, bone in",
+          "2 sprigs rosemary",
+          "400ml beef broth",
+          "1 tin crushed tomatoes",
+          "4 cloves garlic, crushed",
+          "600g sweet potato",
+          "2 capsicum",
+          "1 avocado",
+          "Salt, pepper, cumin"
+        ],
+        "method": [
+          "Rub the lamb all over with salt, pepper, cumin and the crushed garlic.",
+          "Into the slow cooker with the rosemary, beef broth and crushed tomatoes. Eight hours on low — start it before the walk.",
+          "Shred with two forks straight in the pot, trimming the fat as you go. The trimming is what keeps the day on target; shoulder is a fatty cut.",
+          "Roast the sweet potato and capsicum at 200°C fan for 30 minutes near the end.",
+          "Two plates tonight, two containers for tomorrow. It reheats better than anything else in the week."
+        ],
+        "note": "Hold the 150g per serve. Lamb shoulder runs richer than the other proteins and the day goes over quickly if you free-pour it. The sauce reduces well if you want it thicker — lid off for the last half hour."
+      }
+    },
+    "snack-fruit": {
+      "name": "Fruit",
+      "ic": "🍎",
+      "tint": "snack",
+      "detail": ""
+    },
+    "snack-yoghurt": {
+      "name": "Fruit + greek yoghurt",
+      "ic": "🥣",
+      "tint": "snack",
+      "detail": "150g greek yoghurt and fruit",
+      "items": [
+        "150g high-protein greek yoghurt",
+        "Fruit"
+      ]
+    },
+    "snack-turkey": {
+      "name": "Fruit + turkey slices",
+      "ic": "🥙",
+      "tint": "snack",
+      "detail": "50g turkey slices and fruit",
+      "items": [
+        "50g sliced turkey",
+        "Fruit"
+      ]
+    }
+  },
+  "slots": [
+    {
+      "id": "breakfast",
+      "label": "Breakfast"
+    },
+    {
+      "id": "lunch",
+      "label": "Lunch"
+    },
+    {
+      "id": "snack",
+      "label": "Snack"
+    },
+    {
+      "id": "dinner",
+      "label": "Dinner"
+    }
+  ],
+  "week": [
+    {
+      "day": "Monday",
+      "short": "Mon",
+      "workout": "lower-body",
+      "cardio": "15–20 min elliptical, or a walk",
+      "meals": {
+        "breakfast": "yoghurt-bowl",
+        "lunch": "lamb-plate",
+        "snack": "snack-turkey",
+        "dinner": "chicken-bowl"
+      },
+      "lunchFrom": "Sunday's lamb",
+      "cookTonight": "chicken-bowl"
+    },
+    {
+      "day": "Tuesday",
+      "short": "Tue",
+      "workout": "upper-push",
+      "cardio": "15–20 min elliptical, or a walk",
+      "meals": {
+        "breakfast": "eggs-banana",
+        "lunch": "chicken-bowl",
+        "snack": "snack-yoghurt",
+        "dinner": "burrito-bowl"
+      },
+      "lunchFrom": "Monday's chicken bowl",
+      "cookTonight": "burrito-bowl"
+    },
+    {
+      "day": "Wednesday",
+      "short": "Wed",
+      "workout": "core",
+      "cardio": "20 min elliptical, or a walk",
+      "meals": {
+        "breakfast": "yoghurt-bowl",
+        "lunch": "burrito-bowl",
+        "snack": "snack-turkey",
+        "dinner": "fish-plate"
+      },
+      "lunchFrom": "Tuesday's burrito bowl",
+      "cookTonight": "fish-plate"
+    },
+    {
+      "day": "Thursday",
+      "short": "Thu",
+      "workout": "rest",
+      "cardio": "45–60 min walk",
+      "meals": {
+        "breakfast": "eggs-banana",
+        "lunch": "fish-plate",
+        "snack": "snack-yoghurt",
+        "dinner": "stir-fry"
+      },
+      "lunchFrom": "Wednesday's fish — eat it cold",
+      "cookTonight": "stir-fry"
+    },
+    {
+      "day": "Friday",
+      "short": "Fri",
+      "workout": "pull-arms",
+      "cardio": "15–20 min elliptical, or a walk",
+      "meals": {
+        "breakfast": "yoghurt-bowl",
+        "lunch": "stir-fry",
+        "snack": "snack-turkey",
+        "dinner": "steak-plate"
+      },
+      "lunchFrom": "Thursday's stir-fry",
+      "cookTonight": "steak-plate"
+    },
+    {
+      "day": "Saturday",
+      "short": "Sat",
+      "workout": "full-body",
+      "cardio": "15–20 min elliptical, or a walk",
+      "meals": {
+        "breakfast": "eggs-banana",
+        "lunch": "steak-plate",
+        "snack": "snack-yoghurt",
+        "dinner": "fish-plate"
+      },
+      "lunchFrom": "Friday's steak — sliced cold",
+      "cookTonight": "fish-plate"
+    },
+    {
+      "day": "Sunday",
+      "short": "Sun",
+      "workout": "rest",
+      "cardio": "45–60 min walk",
+      "meals": {
+        "breakfast": "yoghurt-bowl",
+        "lunch": "fish-plate",
+        "snack": "snack-fruit",
+        "dinner": "lamb-plate"
+      },
+      "lunchFrom": "Saturday's fish — eat it cold",
+      "cookTonight": "lamb-plate"
+    }
+  ],
+  "workouts": {
+    "core": {
+      "title": "Core & Abs",
+      "subtitle": "3 supersets · ~30 min",
+      "rest": "Rest ~60s between rounds",
+      "supersets": [
+        {
+          "label": "A",
+          "rounds": 3,
+          "exercises": [
+            {
+              "name": "Leg raises",
+              "detail": "bent-knee",
+              "reps": "12",
+              "load": "bodyweight"
+            },
+            {
+              "name": "Bicycle crunches",
+              "reps": "15 / side",
+              "load": "bodyweight"
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "rounds": 3,
+          "exercises": [
+            {
+              "name": "Decline crunches",
+              "detail": "bench",
+              "reps": "12",
+              "load": "2kg DB"
+            },
+            {
+              "name": "V-ups",
+              "detail": "tuck if needed",
+              "reps": "10",
+              "load": "2kg DB"
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "rounds": 3,
+          "exercises": [
+            {
+              "name": "Toe touches",
+              "reps": "15",
+              "load": "2kg DB"
+            },
+            {
+              "name": "Dead bugs",
+              "reps": "10 / side",
+              "load": "1kg DBs"
+            }
+          ]
+        }
+      ]
+    },
+    "full-body": {
+      "title": "Full Body",
+      "subtitle": "3 supersets · ~30 min",
+      "rest": "Rest ~60s between rounds",
+      "supersets": [
+        {
+          "label": "A",
+          "rounds": 3,
+          "exercises": [
+            {
+              "name": "Goblet squat",
+              "reps": "12",
+              "load": "10kg DB"
+            },
+            {
+              "name": "Push-ups",
+              "detail": "full / knees",
+              "reps": "8–10",
+              "load": "bodyweight"
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "rounds": 3,
+          "exercises": [
+            {
+              "name": "RDL",
+              "reps": "12",
+              "load": "2×10kg DBs"
+            },
+            {
+              "name": "Single-arm row",
+              "detail": "bench brace",
+              "reps": "10 / side",
+              "load": "8kg DB"
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "rounds": 3,
+          "exercises": [
+            {
+              "name": "Bicycle crunches",
+              "reps": "15 / side",
+              "load": "bodyweight"
+            },
+            {
+              "name": "V-ups",
+              "detail": "tuck if needed",
+              "reps": "10",
+              "load": "2kg DB"
+            }
+          ]
+        }
+      ]
+    },
+    "lower-body": {
+      "title": "Lower Body",
+      "subtitle": "3 supersets · ~30 min",
+      "rest": "Rest ~60s between rounds",
+      "supersets": [
+        {
+          "label": "A",
+          "rounds": 3,
+          "exercises": [
+            {
+              "name": "Goblet squat",
+              "reps": "12",
+              "load": "10kg DB"
+            },
+            {
+              "name": "Hip thrust",
+              "detail": "bench",
+              "reps": "12",
+              "load": "10kg DB"
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "rounds": 3,
+          "exercises": [
+            {
+              "name": "RDL",
+              "reps": "12",
+              "load": "2×10kg DBs"
+            },
+            {
+              "name": "Side-lying hip abduction",
+              "reps": "12 / side",
+              "load": "ankle weights"
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "rounds": 3,
+          "exercises": [
+            {
+              "name": "Bulgarian split squat",
+              "reps": "6 / leg",
+              "load": "2×5kg DBs"
+            },
+            {
+              "name": "Calf raises",
+              "reps": "15",
+              "load": "2×5kg DBs"
+            }
+          ]
+        }
+      ]
+    },
+    "upper-push": {
+      "title": "Upper Push",
+      "subtitle": "3 supersets · ~30 min",
+      "rest": "Rest ~60s between rounds",
+      "supersets": [
+        {
+          "label": "A",
+          "rounds": 3,
+          "exercises": [
+            {
+              "name": "Tricep dips",
+              "detail": "bench",
+              "reps": "8–10",
+              "load": "bodyweight"
+            },
+            {
+              "name": "Push-ups",
+              "detail": "full / knees",
+              "reps": "8–10",
+              "load": "bodyweight"
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "rounds": 3,
+          "exercises": [
+            {
+              "name": "Seated overhead press",
+              "detail": "75–80°",
+              "reps": "12",
+              "load": "2×6kg DBs"
+            },
+            {
+              "name": "Front raise",
+              "reps": "12",
+              "load": "2×3kg DBs"
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "rounds": 3,
+          "exercises": [
+            {
+              "name": "Flat bench press",
+              "reps": "12",
+              "load": "2×7kg DBs"
+            },
+            {
+              "name": "Lateral raise",
+              "reps": "12",
+              "load": "2×3–4kg DBs"
+            }
+          ]
+        }
+      ]
+    },
+    "pull-arms": {
+      "title": "Pull & Arms",
+      "subtitle": "3 supersets · ~30 min",
+      "rest": "Rest ~60s between rounds",
+      "supersets": [
+        {
+          "label": "A",
+          "rounds": 3,
+          "exercises": [
+            {
+              "name": "Single-arm row",
+              "detail": "bench brace",
+              "reps": "10 / side",
+              "load": "8kg DB"
+            },
+            {
+              "name": "Y raise",
+              "reps": "12",
+              "load": "2×3kg DBs"
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "rounds": 3,
+          "exercises": [
+            {
+              "name": "Dumbbell curl",
+              "reps": "12",
+              "load": "2×4kg DBs"
+            },
+            {
+              "name": "Hammer curl",
+              "reps": "12",
+              "load": "2×4kg DBs"
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "rounds": 3,
+          "exercises": [
+            {
+              "name": "Reverse fly",
+              "detail": "standing",
+              "reps": "12",
+              "load": "2×5kg DBs"
+            },
+            {
+              "name": "Serve the platter",
+              "reps": "12",
+              "load": "2×2kg DBs"
+            }
+          ]
+        }
+      ]
+    },
+    "rest": {
+      "title": "Rest day",
+      "subtitle": "Cardio or rest",
+      "isRest": true
+    }
+  },
+  "progression": {
+    "title": "Making it keep working",
+    "points": [
+      "Lean and toned is one job, not two. The deficit takes the fat off; the lifting is what keeps the shape underneath it. Cut the training and you just get smaller, not more defined.",
+      "That means intensity over volume. In a deficit you aren't building much, so the point of every set is to give your body a reason to keep what it has — the last two reps of a round should be genuinely hard.",
+      "When 12 reps stops being difficult by the final round, go up. The 12kg kettlebell and the 8kg dumbbells are sitting there unused, and the jump from 5kg to 6kg on the split squats or 7kg to 8kg on the bench is small enough to be unremarkable and large enough to matter.",
+      "The compound work — squats, deadlifts, hip thrusts, presses, rows, jump squats — is doing double duty. It's the best thing here for looking toned now, and it's the only part that still protects your bone density in thirty years.",
+      "Cardio sits on top, never instead. Elliptical or a walk after lifting, long walks Saturday and Sunday."
+    ]
+  },
+  "shopping": [
+    {
+      "trip": "Sunday",
+      "covers": "Sunday dinner through Friday lunch · for 2",
+      "sections": [
+        {
+          "section": "Protein",
+          "items": [
+            "Lamb shoulder, bone in — 1.2kg (Sunday)",
+            "Chicken breast — 600g (Monday)",
+            "Lean beef mince — 600g (Tuesday)",
+            "Salmon — 4 × 150g fillets (Wednesday)",
+            "Chicken thigh — 600g (Thursday)"
+          ]
+        },
+        {
+          "section": "Fridge",
+          "items": [
+            "High-protein greek yoghurt — 2.5kg, the whole week (one large tub plus a 4-pack, or four 4-packs of 160g Farmers Union)",
+            "Sliced turkey — 300g",
+            "Eggs — 12",
+            "Califia oat milk — 2 cartons",
+            "Butter"
+          ]
+        },
+        {
+          "section": "Produce",
+          "items": [
+            "Capsicum — 6",
+            "Broccolini — 7 bunches",
+            "Sweet potato — 1.4kg",
+            "Avocado — 2",
+            "Strawberries — 600g",
+            "Bananas — 4",
+            "Fruit for snacks — 10 pieces",
+            "Garlic, ginger, rosemary"
+          ]
+        },
+        {
+          "section": "Pantry",
+          "items": [
+            "Rice — roughly 1.4kg cooked, so about 470g uncooked",
+            "Beef broth — 400ml",
+            "Crushed tomatoes — 1 tin",
+            "Black beans — 1 tin",
+            "Corn — 1 tin",
+            "Salsa — 1 jar",
+            "Soy sauce, sesame oil",
+            "Cumin, smoked paprika, oregano, garlic powder",
+            "Olive oil spray"
+          ]
+        }
+      ]
+    },
+    {
+      "trip": "Friday",
+      "covers": "Friday dinner through Sunday lunch · for 2",
+      "sections": [
+        {
+          "section": "Protein",
+          "items": [
+            "Steak — 4 × 150–180g (Friday)",
+            "Salmon or barramundi — 4 × 150g fillets (Saturday)"
+          ]
+        },
+        {
+          "section": "Produce",
+          "items": [
+            "Potatoes — 4 small",
+            "Mushrooms — 400g",
+            "Brussels sprouts — 500g",
+            "Sweet potato — 800g",
+            "Broccolini — 2 bunches",
+            "Strawberries — 200g",
+            "Bananas — 2",
+            "Fruit for snacks — 4 pieces",
+            "Lemon, thyme"
+          ]
+        }
+      ]
+    }
+  ]
+}

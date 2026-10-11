@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Week</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Week">
+<meta name="theme-color" content="#f3f2ef">
+<link rel="apple-touch-icon" href="__ICON_DATA_URI__">
+<link rel="icon" href="__ICON_DATA_URI__">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#23262b; --bg:#f3f2ef; --card:#fff; --mute:#71767e; --hair:#e7e7e2;
+  --soft:rgba(35,38,43,.09); --softer:rgba(35,38,43,.05);
+  --pad:20px; --r:24px;
+  --font:-apple-system,BlinkMacSystemFont,'SF Pro Text','Segoe UI',system-ui,sans-serif;
+  --tint-breakfast:#ffe9d6; --line-breakfast:#f0a868;
+  --tint-lunch:#dff0d8;     --line-lunch:#78b369;
+  --tint-snack:#fde0e9;     --line-snack:#e089a8;
+  --tint-dinner:#e4e0f7;    --line-dinner:#9186d6;
+}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--font);background:var(--bg);color:var(--ink);
+  -webkit-font-smoothing:antialiased;line-height:1.45;
+  overflow-x:hidden;overscroll-behavior-y:none;
+  padding-bottom:calc(40px + env(safe-area-inset-bottom));
+}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer;-webkit-tap-highlight-color:transparent;text-align:left}
+main{max-width:600px;margin:0 auto;padding:0 var(--pad)}
+.pt{padding-top:calc(18px + env(safe-area-inset-top))}
+
+/* chips */
+.chip{display:inline-block;font-size:8.5px;font-weight:800;letter-spacing:.085em;text-transform:uppercase;
+  padding:2.5px 7px;border-radius:20px;background:var(--softer);border:1px solid var(--ink);color:var(--ink);
+  white-space:nowrap}
+.chip.key{background:var(--soft)}
+.chip.t-breakfast{background:var(--tint-breakfast);border-color:var(--line-breakfast)}
+.chip.t-lunch{background:var(--tint-lunch);border-color:var(--line-lunch)}
+.chip.t-snack{background:var(--tint-snack);border-color:var(--line-snack)}
+.chip.t-dinner{background:var(--tint-dinner);border-color:var(--line-dinner)}
+
+/* header */
+.head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.h-day{font-size:33px;font-weight:900;letter-spacing:-.04em;line-height:1}
+.h-date{font-size:12.5px;font-weight:650;color:var(--mute);margin-top:4px}
+.chips-row{display:flex;gap:5px;flex-wrap:wrap;margin-top:14px}
+.days{display:flex;gap:5px;justify-content:space-between;margin:17px 0 20px}
+.dayb{flex:1;aspect-ratio:1;max-width:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:13.5px;font-weight:800;border:1px solid var(--ink);background:var(--card);color:var(--ink);
+  position:relative;transition:background .15s}
+.dayb.on{background:var(--soft)}
+.dayb.today::after{content:"";position:absolute;bottom:5px;left:50%;transform:translateX(-50%);
+  width:4px;height:4px;border-radius:50%;background:var(--ink)}
+
+/* section rule */
+.sec{display:flex;align-items:center;gap:9px;margin-bottom:11px}
+.sec-l{font-size:12.5px;font-weight:900;letter-spacing:.15em;text-transform:uppercase}
+.sec-r{flex:1;height:1px;background:var(--ink)}
+.sec+.sec{margin-top:20px}
+section{margin-top:20px}
+
+/* cards */
+.card{background:var(--card);border:1px solid var(--ink);border-radius:var(--r);padding:15px 17px;margin-bottom:11px}
+.meal{display:flex;align-items:center;gap:13px;padding:14px;width:100%}
+.tile{width:52px;height:52px;border-radius:18px;display:flex;align-items:center;justify-content:center;
+  font-size:24px;flex-shrink:0;border:1px solid var(--ink)}
+.tile.t-breakfast{background:var(--tint-breakfast);border-color:var(--line-breakfast)}
+.tile.t-lunch{background:var(--tint-lunch);border-color:var(--line-lunch)}
+.tile.t-snack{background:var(--tint-snack);border-color:var(--line-snack)}
+.tile.t-dinner{background:var(--tint-dinner);border-color:var(--line-dinner)}
+.m-body{flex:1;min-width:0}
+.m-chips{display:flex;gap:5px;flex-wrap:wrap}
+.m-name{font-size:18.5px;font-weight:800;letter-spacing:-.028em;line-height:1.1;margin-top:6px}
+.m-detail{font-size:12px;font-weight:500;color:var(--mute);margin-top:5px}
+.serve{display:inline-block;font-size:8px;font-weight:800;letter-spacing:.085em;text-transform:uppercase;
+  color:var(--ink);background:var(--softer);border:1px solid var(--mute);border-radius:4px;
+  padding:.5px 4.5px;margin-right:6px;vertical-align:1px}
+.m-from{font-size:11px;font-weight:700;color:var(--mute);margin-top:6px}
+.chev{width:30px;height:30px;border-radius:50%;border:1px solid var(--ink);display:flex;align-items:center;
+  justify-content:center;font-size:14px;font-weight:700;flex-shrink:0;padding-bottom:1px}
+
+/* exercise rows — reps and load are one right-aligned pair with a fixed gap */
+.ex{display:flex;align-items:center;gap:12px;padding:9px 0}
+.ex+.ex{border-top:1px solid var(--hair)}
+.ex-n{flex:1;min-width:0;font-size:15.5px;font-weight:750;letter-spacing:-.015em}
+.ex-n .det{font-weight:500;color:var(--mute)}
+.ex-m{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.ex-r{font-size:16px;font-weight:800;letter-spacing:-.02em}
+
+.seg{display:flex;gap:4px;background:var(--softer);border:1px solid var(--ink);
+  border-radius:26px;padding:4px;margin:18px 0 20px}
+.seg button{flex:1;padding:9px 0;border-radius:22px;text-align:center;font-size:12.5px;
+  font-weight:750;letter-spacing:-.005em;color:var(--mute);border:1px solid transparent;
+  transition:background .15s,color .15s,border-color .15s}
+.seg button.on{background:var(--card);border-color:var(--ink);color:var(--ink)}
+.sItem{display:flex;gap:12px;align-items:center;padding:11px 0;width:100%;
+  transition:opacity .14s}
+.sItem+.sItem{border-top:1px solid var(--hair)}
+.sItem .chk{width:21px;height:21px;border-radius:7px;border:1px solid var(--ink);
+  flex-shrink:0;position:relative;background:#fff;transition:background .14s}
+.sItem.done .chk{background:var(--ink)}
+.sItem .chk::after{content:"";position:absolute;left:7px;top:3px;width:5px;height:10px;
+  border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg) scale(0);
+  transition:transform .16s cubic-bezier(.3,1.4,.6,1)}
+.sItem.done .chk::after{transform:rotate(45deg) scale(1)}
+.sItem .t{flex:1;min-width:0;font-size:14.5px;font-weight:650;letter-spacing:-.012em}
+.sItem.done{opacity:.45}
+.sItem.done .t{text-decoration:line-through}
+.clearb{font-size:8.5px;font-weight:800;letter-spacing:.085em;text-transform:uppercase;
+  padding:5px 11px;border:1px solid var(--ink);border-radius:20px;background:var(--softer);
+  flex-shrink:0}
+.clearb[disabled]{opacity:.35}
+.prep{padding:12px 0}
+.prep+.prep{border-top:1px solid var(--hair)}
+.prep-top{display:flex;align-items:center;gap:12px}
+.prep-w{flex:1;min-width:0;font-size:15.5px;font-weight:750;letter-spacing:-.015em}
+.prep-how{font-size:12.5px;font-weight:500;color:var(--mute);margin-top:5px;line-height:1.45}
+.empty{text-align:center;padding:34px 20px}
+.empty-t{font-size:20px;font-weight:800;letter-spacing:-.03em}
+.empty-s{font-size:13.5px;font-weight:550;color:var(--mute);margin-top:6px}
+.note{font-size:13px;font-weight:500;line-height:1.5;background:var(--card);border:1px solid var(--ink);
+  border-radius:20px;padding:13px 16px;margin-bottom:11px}
+.note b{font-weight:800}
+.note.tinted{background:var(--tint-lunch);border-color:var(--line-lunch)}
+.cardio{display:flex;align-items:center;gap:11px;font-size:13.5px;font-weight:600;color:var(--ink);
+  background:var(--card);border:1px solid var(--ink);border-radius:20px;padding:12px 16px;margin-bottom:11px}
+.foot{font-size:11.5px;font-weight:600;color:var(--mute);text-align:center;margin:14px 0 4px}
+
+/* recipe */
+.hero{text-align:center;padding:20px}
+.hero .tile{width:76px;height:76px;border-radius:26px;font-size:36px;margin:0 auto 13px}
+.hero h1{font-size:30px;font-weight:900;letter-spacing:-.04em;line-height:1.05}
+.hero .metas{display:flex;gap:6px;justify-content:center;margin-top:12px;flex-wrap:wrap}
+.topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.rnd{width:38px;height:38px;border-radius:50%;border:1px solid var(--ink);background:var(--card);
+  display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;flex-shrink:0}
+.li{display:flex;gap:11px;align-items:baseline;padding:10px 0}
+.li+.li{border-top:1px solid var(--hair)}
+.li .dot{width:5px;height:5px;border-radius:50%;background:var(--line-lunch);flex-shrink:0}
+.li span.t{font-size:14.5px;font-weight:650;letter-spacing:-.012em}
+.step{display:flex;gap:13px;padding:13px 0}
+.step+.step{border-top:1px solid var(--hair)}
+.step .n{width:24px;height:24px;border-radius:50%;background:var(--soft);border:1px solid var(--ink);
+  display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0}
+.step p{font-size:14px;font-weight:500;line-height:1.5}
+
+/* week list */
+.wk{display:flex;align-items:center;gap:13px;padding:14px;width:100%}
+.wk-d{width:46px;flex-shrink:0}
+.wk-d b{display:block;font-size:14px;font-weight:900;letter-spacing:-.02em}
+.wk-d span{display:block;font-size:10.5px;font-weight:700;color:var(--mute);margin-top:1px}
+.wk-b{flex:1;min-width:0}
+.wk-t{font-size:15.5px;font-weight:800;letter-spacing:-.022em}
+.wk-m{font-size:11.5px;font-weight:500;color:var(--mute);margin-top:3px;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+.view[hidden]{display:none}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+  <div class="view" id="vDay"></div>
+  <div class="view" id="vRecipe" hidden></div>
+  <div class="view" id="vShop" hidden></div>
+</main>
+
+<script>
+const PLAN = __PLAN_JSON__;
+const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const chip = (t,cls) => '<span class="chip '+(cls||'')+'">'+esc(t)+'</span>';
+
+/* dates */
+const pad = n => String(n).padStart(2,'0');
+function mondayOf(r){const x=new Date(r);x.setHours(0,0,0,0);x.setDate(x.getDate()-((x.getDay()+6)%7));return x;}
+const NOW=new Date(), MONDAY=mondayOf(NOW), TODAY=(NOW.getDay()+6)%7;
+const dateFor = i => {const d=new Date(MONDAY);d.setDate(d.getDate()+i);return d;};
+let idx = TODAY, tab = 'day', seg = 'meals', shopTrip = 0;
+
+/* ── day ── */
+function renderDay(){
+  const d = PLAN.week[idx], w = PLAN.workouts[d.workout], date = dateFor(idx);
+  let h = '<div class="pt"><div class="head"><div>'
+    + '<div class="h-day">'+esc(d.day)+'</div>'
+    + '<div class="h-date">'+date.toLocaleDateString(undefined,{day:'numeric',month:'long'})
+      + (idx===TODAY?' · today':'')+'</div></div>'
+    + '<button class="rnd" id="cart" aria-label="Shopping">\u{1F6D2}</button></div>'
+    + '<div class="chips-row">'+chip(PLAN.meta.dayTargets.kcal)
+      + chip(PLAN.meta.dayTargets.protein,'key')+chip('per person')+'</div>';
+
+  h += '<div class="days">' + PLAN.week.map((x,i)=>
+    '<button class="dayb'+(i===idx?' on':'')+(i===TODAY?' today':'')+'" data-day="'+i+'">'+esc(x.day[0])+'</button>'
+  ).join('') + '</div>';
+
+  h += '<div class="seg">'
+    + '<button class="'+(seg==='meals'?'on':'')+'" data-seg="meals">Meals</button>'
+    + '<button class="'+(seg==='training'?'on':'')+'" data-seg="training">Training</button>'
+    + '</div></div>';
+
+  if (seg === 'meals') {
+    PLAN.slots.forEach(slot=>{
+      const id = d.meals[slot.id], m = PLAN.mealKey[id];
+      if(!m) return;
+      const tint = 't-'+slot.id;
+      const from = (slot.id==='lunch' && d.lunchFrom) ? d.lunchFrom : '';
+      const cook = (slot.id==='dinner' && d.cookTonight===id);
+      const linkable = m.recipe && !from;
+      h += '<'+(linkable?'button':'div')+' class="card meal" '+(linkable?'data-recipe="'+esc(id)+'"':'')+'>'
+        + '<span class="tile '+tint+'">'+m.ic+'</span>'
+        + '<span class="m-body">'
+        + '<span class="m-chips">'+chip(slot.label,tint)
+          + (from?chip('Leftovers'):'') + (cook?chip('Cook for 4','key'):'') + '</span>'
+        + '<span class="m-name" style="display:block">'+esc(m.name)+'</span>'
+        + (m.detail?'<span class="m-detail" style="display:block"><span class="serve">1 serve</span>'+esc(m.detail)+'</span>':'')
+        + (from?'<span class="m-from" style="display:block">From '+esc(from)+'</span>':'')
+        + (cook?'<span class="m-from" style="display:block">'+esc(m.recipe.makes)+'</span>':'')
+        + '</span>'
+        + (linkable?'<span class="chev">\u203A</span>':'')
+        + '</'+(linkable?'button':'div')+'>';
+    });
+    h += '<div class="foot">'+esc(PLAN.meta.note)+'</div>';
+  } else {
+    if(!w.isRest)
+      h += '<div class="sec" style="margin-top:4px"><span class="sec-l">'+esc(w.title)+'</span>'
+         + '<span class="sec-r"></span>'+chip(w.subtitle.split(' · ').pop())+'</div>';
+    if(w.isRest){
+      h += '<div class="card empty"><div class="empty-t">Rest day</div>'
+        + '<div class="empty-s">'+esc(d.cardio || 'Cardio or rest')+'</div></div>';
+    } else {
+      w.supersets.forEach(ss=>{
+        h += '<div class="card"><div style="display:flex;gap:6px;margin-bottom:10px">'
+          + chip('Set '+ss.label,'key') + chip(ss.rounds+' rounds') + '</div>'
+          + ss.exercises.map(e=>'<div class="ex">'
+              + '<span class="ex-n">'+esc(e.name)+(e.detail?' <span class="det">\u00B7 '+esc(e.detail)+'</span>':'')+'</span>'
+              + '<span class="ex-m">'+chip(e.load)+'<span class="ex-r">'+esc(e.reps)+'</span></span>'
+            + '</div>').join('')
+          + '</div>';
+      });
+      h += '<div class="foot">'+esc(w.rest)+'</div>';
+    }
+    if(d.cardio && !w.isRest) h += '<div class="cardio">'+chip('Cardio','key')+'<span>'+esc(d.cardio)+'</span></div>';
+  }
+
+  document.getElementById('vDay').innerHTML = h;
+  document.querySelectorAll('[data-day]').forEach(b=>b.onclick=()=>{ idx=+b.dataset.day; renderDay(); scrollTo(0,0); });
+  document.querySelectorAll('[data-seg]').forEach(b=>b.onclick=()=>{ seg=b.dataset.seg; renderDay(); });
+  document.querySelectorAll('[data-recipe]').forEach(b=>b.onclick=()=>{ renderRecipe(b.dataset.recipe); show('recipe'); });
+  document.getElementById('cart').onclick = ()=>{ renderShop(); show('shop'); };
+}
+
+/* ── recipe ── */
+function renderRecipe(id){
+  const m = PLAN.mealKey[id], r = m.recipe;
+  let h = '<div class="pt"><div class="topbar">'
+    + '<button class="rnd" id="back" style="padding-right:2px">\u2039</button>'
+    + chip('Cook for '+r.serves,'t-lunch')
+    + '<span style="width:38px"></span></div>'
+    + '<div class="card hero"><span class="tile t-lunch">'+m.ic+'</span>'
+    + '<h1>'+esc(m.name)+'</h1><div class="metas">'
+    + chip(r.time)+chip('Serves '+r.serves)+chip(PLAN.meta.oven)+'</div></div>'
+    + '<div class="note"><b>'+esc(r.makes)+'.</b> '+esc(m.detail)+' per serve.</div>'
+    + '<div class="sec"><span class="sec-l">Ingredients</span><span class="sec-r"></span></div><div class="card">'
+    + r.ingredients.map(x=>'<div class="li"><span class="dot"></span><span class="t">'+esc(x)+'</span></div>').join('')
+    + '</div>'
+    + '<div class="sec"><span class="sec-l">Method</span><span class="sec-r"></span></div><div class="card">'
+    + r.method.map((x,i)=>'<div class="step"><span class="n">'+(i+1)+'</span><p>'+esc(x)+'</p></div>').join('')
+    + '</div>'
+    + (r.note?'<div class="note tinted"><b>Worth knowing.</b> '+esc(r.note)+'</div>':'')
+    + '<div class="foot">'+esc(PLAN.meta.ovenNote)+'</div></div>';
+  document.getElementById('vRecipe').innerHTML = h;
+  document.getElementById('back').onclick = ()=>show('day');
+}
+
+/* ── shop ── */
+function renderShop(){
+  const trips = PLAN.shopping, S = 'health.shop.v1';
+  const read  = () => { try { return JSON.parse(localStorage.getItem(S)) || {}; } catch { return {}; } };
+  const write = s => { try { localStorage.setItem(S, JSON.stringify(s)); } catch {} };
+
+  function draw(){
+    const state = read(), trip = trips[shopTrip], keys = [];
+    trip.sections.forEach((sec,si)=>sec.items.forEach((_,ii)=>keys.push(shopTrip+'-'+si+'-'+ii)));
+    const done = keys.filter(k=>state[k]).length;
+
+    let h = '<div class="pt"><div class="topbar">'
+      + '<button class="rnd" id="shopback" style="padding-right:2px">\u2039</button>'
+      + '<button class="clearb" id="clear"'+(done?'':' disabled')+'>Clear</button></div>'
+      + '<div class="head"><div><div class="h-day">Shopping</div>'
+      + '<div class="h-date">'+esc(trip.covers)+'</div></div></div>'
+      + '<div class="seg">' + trips.map((t,i)=>
+          '<button class="'+(i===shopTrip?'on':'')+'" data-trip="'+i+'">'+esc(t.trip)+'</button>').join('')
+      + '</div></div>';
+
+    trip.sections.forEach((sec,si)=>{
+      h += '<div class="sec"><span class="sec-l">'+esc(sec.section)+'</span><span class="sec-r"></span></div>'
+        + '<div class="card">'
+        + sec.items.map((x,ii)=>{
+            const k = shopTrip+'-'+si+'-'+ii;
+            return '<button class="sItem'+(state[k]?' done':'')+'" data-k="'+k+'">'
+              + '<span class="chk"></span><span class="t">'+esc(x)+'</span></button>';
+          }).join('')
+        + '</div>';
+    });
+    h += '<div class="foot">'+done+' of '+keys.length+' picked up</div>';
+
+    const v = document.getElementById('vShop');
+    v.innerHTML = h;
+    v.querySelectorAll('[data-trip]').forEach(b=>b.onclick=()=>{ shopTrip=+b.dataset.trip; draw(); });
+    v.querySelectorAll('[data-k]').forEach(b=>b.onclick=()=>{
+      const s = read(), k = b.dataset.k;
+      if (s[k]) delete s[k]; else s[k] = 1;
+      write(s); draw();
+    });
+    document.getElementById('shopback').onclick = ()=>show('day');
+    const c = document.getElementById('clear');
+    if (c) c.onclick = ()=>{ const s = read(); keys.forEach(k=>delete s[k]); write(s); draw(); };
+  }
+  draw();
+}
+
+/* ── views ── */
+function show(which){
+  tab = which;
+  ['day','recipe','shop'].forEach(v=>{
+    document.getElementById('v'+v[0].toUpperCase()+v.slice(1)).hidden = (v!==which);
+  });
+  scrollTo(0,0);
+}
+
+/* swipe between days */
+let tx=0,ty=0;
+addEventListener('touchstart',e=>{tx=e.changedTouches[0].clientX;ty=e.changedTouches[0].clientY;},{passive:true});
+addEventListener('touchend',e=>{
+  if(tab!=='day') return;
+  const dx=e.changedTouches[0].clientX-tx, dy=e.changedTouches[0].clientY-ty;
+  if(Math.abs(dx)>55 && Math.abs(dx)>Math.abs(dy)*2){ idx=(idx+(dx<0?1:6))%7; renderDay(); }
+},{passive:true});
+
+renderDay();
+if('serviceWorker' in navigator && location.protocol.indexOf('http')===0)
+  navigator.serviceWorker.register('sw.js').catch(()=>{});
+</script>
+</body>
+</html>
